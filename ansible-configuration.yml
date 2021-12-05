@@ -1,0 +1,13 @@
+- name : Configure Docker on EC2 Instances
+  hosts : server
+  connection : ssh
+  tasks : 
+  - name : Install Docker
+    command : apt install -y docker.io
+    become : yes
+    become_user : root
+
+  - name : Start Docker Service
+    command : sudo systemctl start docker
+    become : yes
+    become_user : root
